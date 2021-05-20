@@ -1,12 +1,9 @@
 import React, { useEffect } from "react";
 import "./style.css";
 import bannerpic from "../../images/bannerpic3.jpg";
-import demoproduct from "../../images/demoproduct.jpg";
-import demoproduct2 from "../../images/demoproduct2.jpg";
 import { Link } from "react-router-dom";
 import Product from "../product/Product";
 import { useDispatch, useSelector } from "react-redux";
-import { flagcounter, setproduct } from "../../redux/actions/cartactions";
 import axios from "axios";
 function Home() {
   const dispatch = useDispatch();
@@ -32,7 +29,7 @@ function Home() {
     fetchproducts();
     // dispatch(flagcounter(1));
     // }
-  }, []);
+  });
 
   // products.productlistreducers.forEach((ele) => {
   //   // console.log(ele);

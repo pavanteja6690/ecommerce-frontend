@@ -1,6 +1,4 @@
 import React from "react";
-import { useDispatch } from "react-redux";
-import { addtocart } from "../../redux/actions/cartactions";
 import "./style.css";
 function Product({ title, price, image, rating }) {
   return (

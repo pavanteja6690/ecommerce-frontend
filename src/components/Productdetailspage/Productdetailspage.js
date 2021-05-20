@@ -6,7 +6,6 @@ import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { addtocart } from "../../redux/actions/cartactions";
 
-import { Link } from "react-router-dom";
 function Productdetailspage() {
   const dispatch = useDispatch();
   let user = useSelector((state) => state.userreducer);
@@ -59,13 +58,17 @@ function Productdetailspage() {
   };
   useEffect(() => {
     fetchproduct(id);
-  }, []);
+  });
   //   title,description,category,price,image
   return (
     <div className="highestdiv">
       <div className="productdetailstopdiv">
         <div className="productdetailsimagediv">
-          <img className="productdetailsimage" src={selectedproduct.image} />
+          <img
+            className="productdetailsimage"
+            src={selectedproduct.image}
+            alt="img"
+          />
         </div>
         <div className="productdetailsinfo">
           <h1>{selectedproduct.title}</h1>

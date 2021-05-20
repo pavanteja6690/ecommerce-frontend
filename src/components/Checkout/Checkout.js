@@ -2,8 +2,6 @@ import React from "react";
 import { useSelector } from "react-redux";
 import Basketitem from "../Basketitem/Basketitem";
 import "./style.css";
-import Modal from "react-bootstrap/Modal";
-import Button from "react-bootstrap/Button";
 import LockIcon from "@material-ui/icons/Lock";
 import { Link } from "react-router-dom";
 function Checkout(props) {
@@ -15,7 +13,7 @@ function Checkout(props) {
     cnt = cnt + parseInt(ele.count);
     price = price + ele.price * ele.count;
   });
-  if (props.class == "inactive") {
+  if (props.class === "inactive") {
     return (
       <div>
         <div id="myModal" class="modal">

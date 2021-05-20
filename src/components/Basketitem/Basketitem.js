@@ -21,12 +21,12 @@ function Basketitem({ title, price, image, id }) {
   };
   const cartitems = useSelector((state) => state.cartactionreducers);
   console.log(cartitems);
-  const cartitemcount = cartitems.find((ele) => ele.id == id);
+  const cartitemcount = cartitems.find((ele) => ele.id === id);
   console.log(id, cartitemcount);
   return (
     <div className="topdiv">
       <div className="imagediv">
-        <img src={image} />
+        <img src={image} alt="img" />
       </div>
       <div className="infodiv">
         <Link className="link" to={`/products/${id}`}>

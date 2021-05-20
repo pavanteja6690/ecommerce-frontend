@@ -1,6 +1,5 @@
 import React, { useEffect, useState, useRef } from "react";
 import "./style.css";
-import headerlogo from "../../images/demologo.png";
 import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
@@ -14,22 +13,22 @@ function Header() {
   const [optionlink, setoptionlink] = useState("/signin");
   const cartproductscnt = useSelector((state) => state.cartactionreducers);
   const cnt = cartproductscnt.length;
-  var currentuser = "guest";
+  var currentuser = useRef("guest");
   const user = useSelector((state) => state.userreducer);
   useEffect(() => {
-    if (user.loggedin == false) {
+    if (user.loggedin === false) {
       option1.current.innerHTML = "Hello guest";
       option2.current.style.display = "none";
       option3.current.style.display = "block";
       option3.current.innerHTML = "Sign in";
       setoptionlink("/signin");
-      currentuser = "guest";
+      currentuser.current = "guest";
       dropdownbtn.current.className = "a";
     } else {
       option1.current.innerHTML = "Hello";
       option2.current.display = "block";
-      currentuser = user.username;
-      option2.current.innerHTML = currentuser;
+      currentuser.current = user.username;
+      option2.current.innerHTML = currentuser.current;
       // console.log("entered", optionlink.current);
       setoptionlink("/checkout");
       console.log(optionlink);
@@ -38,7 +37,7 @@ function Header() {
       option3.current.style.display = "none";
       dropdownbtn.current.className = "dropdown";
     }
-  }, [user]);
+  }, [user, optionlink]);
   const signouthandler = () => {
     dispatch({ type: "signout", payload: [] });
   };

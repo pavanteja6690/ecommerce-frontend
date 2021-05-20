@@ -1,13 +1,11 @@
 import "./style.css";
 import React, { useRef, useState } from "react";
-import { Link, Redirect, useHistory } from "react-router-dom";
-import { useDispatch } from "react-redux";
+import { Link, useHistory } from "react-router-dom";
 
 import axios from "axios";
 function Signuppage() {
   const popuphandler = useRef();
   const history = useHistory();
-  const dispatch = useDispatch();
   const [email, setEmail] = useState("");
   const [name, setName] = useState("");
   // const [mobile, setMobile] = useState();
@@ -37,7 +35,7 @@ function Signuppage() {
       .then((response) => {
         console.log(popuphandler.current);
         console.log(response.data);
-        if (response.data == "Emailexists") {
+        if (response.data === "Emailexists") {
           popuphandler.current.innerHTML = "Email already exists";
           popuphandler.current.style.color = "red";
         } else {
@@ -50,7 +48,7 @@ function Signuppage() {
           popuphandler.current.style.color = "green";
           console.log(popuphandler.current);
           popuphandler.current.style.visibility = "visible";
-          const timeout = setTimeout(() => {
+          setTimeout(() => {
             history.push("/signin");
           }, 3000);
         }
@@ -64,7 +62,9 @@ function Signuppage() {
       <Link to="/">
         <h1>LOGO</h1>
       </Link>
-      <h3 ref={popuphandler} className="popup"></h3>
+      <h3 ref={popuphandler} className="popup">
+        {""}
+      </h3>
 
       <form className="signupblock">
         <h2>Sign up</h2>

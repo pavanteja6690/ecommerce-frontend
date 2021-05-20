@@ -1,5 +1,4 @@
 import React from "react";
-import Header from "./../Header/Header";
 import Checkout from "./Checkout";
 import { useSelector } from "react-redux";
 function Checkout2() {

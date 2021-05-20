@@ -2,7 +2,7 @@
 import { Actiontypes } from "../types";
 const initialstate = 0;
 export const cntreducer = (cnt = initialstate, { type, payload }) => {
-  if (type == Actiontypes.FLAG_COUNTER) {
+  if (type === Actiontypes.FLAG_COUNTER) {
     return cnt + 1;
   }
   return cnt;

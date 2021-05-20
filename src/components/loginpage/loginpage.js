@@ -25,11 +25,11 @@ function Loginpage() {
       })
       .then((response) => {
         // console.log(response.data);
-        if (response.data == "Email doesn't exist") {
+        if (response.data === "Email doesn't exist") {
           loginpopuphandler.current.innerHTML = "Email doesn't exist";
           loginpopuphandler.current.style.visibility = "visible";
           loginpopuphandler.current.style.color = "red";
-        } else if (response.data == "incorrect password") {
+        } else if (response.data === "incorrect password") {
           loginpopuphandler.current.innerHTML = "Incorrect password";
           loginpopuphandler.current.style.visibility = "visible";
           loginpopuphandler.current.style.color = "red";
@@ -54,7 +54,7 @@ function Loginpage() {
       <Link to="/">
         <h1>LOGO</h1>
       </Link>
-      <h3 ref={loginpopuphandler}></h3>
+      <h3 ref={loginpopuphandler}>{""}</h3>
       <div className="loginblock">
         <h2>Sign in</h2>
         <div>
