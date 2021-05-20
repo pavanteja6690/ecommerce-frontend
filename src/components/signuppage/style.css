@@ -1,0 +1,104 @@
+.signuptopdiv {
+  display: flex;
+  width: 30vw;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+}
+#email[type="email"]:valid {
+  color: blue;
+}
+#email[type="email"]:invalid {
+  color: red;
+}
+.signuptopdiv > h3 {
+  background: white;
+  padding: 5px;
+  border-radius: 2px;
+  min-width: 100px;
+  text-align: center;
+  font-weight: normal;
+  visibility: hidden;
+}
+h1 {
+  color: black;
+}
+.signupblock {
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+.signupblock > h2 {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.signupblock > div > input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0;
+  font-size: smaller;
+}
+.signupblock > button {
+  width: fit-content;
+  padding: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: #f0c14b;
+  border: 1px solid;
+  color: #111;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.newuser {
+  text-align: center;
+  margin: auto;
+  margin-bottom: 20px;
+}
+@media screen and (max-width: 1050px) {
+  .signuptopdiv {
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .signuptopdiv {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 650px) {
+  .signuptopdiv {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .signuptopdiv {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .signuptopdiv {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 380px) {
+  .signuptopdiv {
+    width: 95vw;
+  }
+  .signupblock > div > input {
+    width: 90%;
+  }
+}

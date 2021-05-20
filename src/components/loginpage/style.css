@@ -1,0 +1,95 @@
+.logintopdiv {
+  display: flex;
+  width: 30vw;
+  margin: auto;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+}
+.logintopdiv > h3 {
+  background: white;
+  padding: 5px;
+  border-radius: 2px;
+  min-width: 150px;
+  text-align: center;
+  font-weight: normal;
+  visibility: hidden;
+}
+.loginblock {
+  display: flex;
+  flex-direction: column;
+  background: rgb(255, 255, 255);
+  padding: 10px;
+  padding-left: 0;
+  padding-right: 0;
+  width: 80%;
+  justify-content: center;
+  align-items: center;
+  border-radius: 5px;
+  margin-top: 40px;
+}
+.loginblock > h2 {
+  font-weight: normal;
+  margin-top: 10px;
+  margin-bottom: 20px;
+}
+
+.loginblock > div > input {
+  width: 100%;
+  padding: 5px;
+  margin: 5px;
+  margin-left: 0;
+  font-size: smaller;
+}
+.loginblock > button {
+  width: fit-content;
+  padding: 2px;
+  padding-right: 10px;
+  padding-left: 10px;
+  font-family: Arial, Helvetica, sans-serif;
+  font-weight: bold;
+  background: #f0c14b;
+  border: 1px solid;
+  color: #111;
+  margin: auto;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+.newuser {
+  margin: auto;
+  margin-bottom: 20px;
+  color: black;
+}
+@media screen and (max-width: 1050px) {
+  .logintopdiv {
+    width: 40vw;
+  }
+}
+@media screen and (max-width: 800px) {
+  .logintopdiv {
+    width: 50vw;
+  }
+}
+@media screen and (max-width: 650px) {
+  .logintopdiv {
+    width: 60vw;
+  }
+}
+@media screen and (max-width: 550px) {
+  .logintopdiv {
+    width: 70vw;
+  }
+}
+@media screen and (max-width: 450px) {
+  .logintopdiv {
+    width: 85vw;
+  }
+}
+@media screen and (max-width: 380px) {
+  .logintopdiv {
+    width: 95vw;
+  }
+  .loginblock > div > input {
+    width: 90%;
+  }
+}

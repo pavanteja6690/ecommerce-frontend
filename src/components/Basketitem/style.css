@@ -1,0 +1,78 @@
+.topdiv {
+  display: flex;
+  color: white;
+  background: rgb(255, 255, 255);
+  flex-direction: row;
+  margin: 15px;
+  border-radius: 5px;
+  padding: 10px;
+  box-shadow: 0 6px 10px rgba(0, 0, 0, 0.08), 0 0 6px rgba(0, 0, 0, 0.05);
+  transition: 0.9s transform cubic-bezier(0.155, 1.105, 0.295, 1.12),
+    0.9s box-shadow,
+    0.9s -webkit-transform cubic-bezier(0.155, 1.105, 0.295, 1.12);
+}
+.topdiv:hover {
+  transform: scale(1.04);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.12), 0 4px 8px rgba(0, 0, 0, 0.06);
+}
+.imagediv > img {
+  height: 170px;
+  width: 170px;
+  align-items: center;
+  justify-content: center;
+  border-radius: 5px;
+}
+.infodiv {
+  display: flex;
+  flex-direction: column;
+  margin-left: 20px;
+}
+.removebutton {
+  margin-top: 10px;
+  background: #f0c14b;
+  border: 1px solid;
+  color: #111;
+  border-radius: 2px;
+  padding: 3px;
+  width: fit-content;
+}
+.counter {
+  margin-top: 10px;
+}
+.counterbutton {
+  background: #e6b53b;
+  border: none;
+}
+.link {
+  color: black;
+}
+@media screen and (max-width: 880px) {
+  h2 {
+    font-size: 15px;
+  }
+  h3 {
+    font-size: medium;
+  }
+}
+@media screen and (max-width: 600px) {
+  h2 {
+    text-align: center;
+  }
+  .topdiv {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+  .infodiv {
+    align-items: center;
+    justify-content: center;
+    margin: auto;
+  }
+  .link {
+    color: black;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+}
