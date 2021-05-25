@@ -8,6 +8,7 @@ import {
   removefromcart,
 } from "../../redux/actions/cartactions";
 import { useDispatch, useSelector } from "react-redux";
+
 function Basketitem({ title, price, image, id }) {
   const dispatch = useDispatch();
   const handleremovefromcart = (id) => {

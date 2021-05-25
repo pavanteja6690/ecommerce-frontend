@@ -3,6 +3,7 @@ import React, { useRef, useState } from "react";
 import { Link, useHistory } from "react-router-dom";
 
 import axios from "axios";
+import { useDispatch } from "react-redux";
 function Signuppage() {
   const popuphandler = useRef();
   const history = useHistory();
@@ -10,6 +11,7 @@ function Signuppage() {
   const [name, setName] = useState("");
   // const [mobile, setMobile] = useState();
   const [password, setPassword] = useState();
+  const dispatch = useDispatch();
 
   const handleemailchange = (e) => {
     setEmail(e.target.value);
@@ -27,7 +29,8 @@ function Signuppage() {
     e.preventDefault();
     console.log(email, name, password);
     await axios
-      .post("http://localhost:5000/auth/signup", {
+      .post("https://ecommerce-login-backend.herokuapp.com/auth/signup", {
+        // .post("https://ecommerce-login-backend.herokuapp.com/auth/signup", {
         username: name,
         email: email,
         password: password,
@@ -43,14 +46,17 @@ function Signuppage() {
           //   "Signup successful<Link to='/',"login"> <h6>Please login</h6></Link>";
           // popuphandler.current.style.color = "green";
           // return <Redirect to="/signin" />;
-          popuphandler.current.innerHTML =
-            "Signup successful<h6 style='color:black;font-weight:normal;font-size:10px;margin-top:10px;'>Redirecting you to login page.....</h6>";
-          popuphandler.current.style.color = "green";
-          console.log(popuphandler.current);
-          popuphandler.current.style.visibility = "visible";
-          setTimeout(() => {
-            history.push("/signin");
-          }, 3000);
+          // from here popuphandler.current.innerHTML =
+          //   "Signup successful<h6 style='color:black;font-weight:normal;font-size:10px;margin-top:10px;'>Redirecting you to login page.....</h6>";
+          // popuphandler.current.style.color = "green";
+          // console.log(popuphandler.current);
+          // popuphandler.current.style.visibility = "visible";
+          // setTimeout(() => {
+          //   history.push("/signin");
+          // }, 3000);
+          localStorage.setItem("token", response.data.token);
+          dispatch({ type: "user", payload: response.data.user });
+          history.push("/homepage");
         }
       })
       .catch((err) => {

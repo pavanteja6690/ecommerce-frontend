@@ -19,7 +19,7 @@ function Loginpage() {
   };
   const signinhandler = async () => {
     await axios
-      .post("http://localhost:5000/auth/login", {
+      .post("https://ecommerce-login-backend.herokuapp.com/auth/login", {
         email: email,
         password: password,
       })
@@ -40,6 +40,11 @@ function Loginpage() {
           // var x = document.cookie.split("=")[1];
           // console.log(x);
           // console.log(response.data.user.email);
+          dispatch({
+            type: "Fillcartsignin",
+            payload: response.data.user.cartitems,
+          });
+          console.log(response.data.user.cartitems);
           dispatch({ type: "user", payload: response.data.user });
           console.log(response.data);
           history.push("/homepage");

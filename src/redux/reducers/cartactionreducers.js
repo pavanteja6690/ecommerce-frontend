@@ -9,18 +9,6 @@ export const cartactionreducers = (
   switch (type) {
     case Actiontypes.ADD_TO_CART:
       let newcart = [...cartitems];
-      // console.log(payload);
-      // if ([...cartitems].find((ele) => ele.id == payload.data.id)) {
-      //   [...cartitems].forEach((ele) => {
-      //     if (ele.id == payload.data.id) {
-      //       console.log(ele.count);
-      //       ele.count = ele.count + 1;
-      //       console.log(ele.count);
-      //       console.log([...cartitems]);
-      //       return [...cartitems];
-      //     }
-      //   });
-      // }
       let index = cartitems.findIndex((ele) => ele.id === payload.data.id);
       if (index !== -1) {
         newcart[index].count++;
@@ -48,7 +36,14 @@ export const cartactionreducers = (
         return newcart2.filter((ele) => ele.id !== payload);
       }
       return newcart2;
-
+    case "EmptyCartSignout":
+      return [];
+    case "Fillcartsignin":
+      let newusercart = payload;
+      return newusercart;
+    // case "updatingcartonrefresh":
+    //   if (payload == undefined) return [];
+    //   return payload;
     default:
       return cartitems;
   }

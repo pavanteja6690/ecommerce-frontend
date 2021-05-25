@@ -4,6 +4,7 @@ import SearchIcon from "@material-ui/icons/Search";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import { Link } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import axios from "axios";
 function Header() {
   const option1 = useRef();
   const option2 = useRef();
@@ -11,10 +12,35 @@ function Header() {
   const dropdownbtn = useRef();
   const dispatch = useDispatch();
   const [optionlink, setoptionlink] = useState("/signin");
+  var cartitems = useSelector((state) => state.cartactionreducers);
   const cartproductscnt = useSelector((state) => state.cartactionreducers);
   const cnt = cartproductscnt.length;
   var currentuser = useRef("guest");
   const user = useSelector((state) => state.userreducer);
+
+  useEffect(() => {
+    async function abcd() {
+      await axios
+        .post(
+          "https://ecommerce-login-backend.herokuapp.com/userinfopost",
+          { email: user.email, cartitems: cartitems },
+          {
+            headers: {
+              Authorization: "bearer " + localStorage.getItem("token"),
+            },
+          }
+        )
+        .then((response) => {
+          console.log(response.data);
+          // dispatch({ type: "user", payload: response.data });
+        })
+        .catch((err) => {
+          console.log(err);
+        });
+    }
+    abcd();
+  }, [cartitems, user.email, dispatch]);
+
   useEffect(() => {
     if (user.loggedin === false) {
       option1.current.innerHTML = "Hello guest";
@@ -38,8 +64,12 @@ function Header() {
       dropdownbtn.current.className = "dropdown";
     }
   }, [user, optionlink]);
+  useEffect(() => {
+    dispatch({ type: "updatingcartonrefresh", payload: user.cartitems });
+  }, [user, dispatch]);
   const signouthandler = () => {
     dispatch({ type: "signout", payload: [] });
+    dispatch({ type: "EmptyCartSignout", payload: [] });
   };
   return (
     <div class="header">
