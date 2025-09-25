@@ -32,7 +32,7 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          gh repo create org/${{ github.event.inputs.repo_name }} \
+          gh repo create pavanteja6690/${{ github.event.inputs.repo_name }} \
             --private \
             --template ${{ github.repository }} \
             -y
