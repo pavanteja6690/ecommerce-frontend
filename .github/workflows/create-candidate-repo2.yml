@@ -39,5 +39,6 @@ jobs:
 
       - name: Add candidate as collaborator
         run: |
-          gh repo add-collaborator org/${{ github.event.inputs.repo_name }} \
-            ${{ github.event.inputs.candidate_username }} 
+           gh api -X PUT -H "Accept: application/vnd.github.v3+json" \
+            /repos/pavanteja6690/${{ github.event.inputs.repo_name }}/collaborators/${{ github.event.inputs.candidate_username }} \
+            -f permission=push
