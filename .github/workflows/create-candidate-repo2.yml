@@ -22,11 +22,11 @@ jobs:
           sudo apt update
           sudo apt install gh -y
 
-      - name: Authenticate with GitHub CLI
+      - name: Check GitHub CLI auth
         env:
           GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
-          echo "${GH_TOKEN}" | gh auth login --with-token
+          gh auth status
 
       - name: Create new repo from template
         run: |
