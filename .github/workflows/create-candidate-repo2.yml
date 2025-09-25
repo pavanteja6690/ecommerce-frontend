@@ -34,7 +34,7 @@ jobs:
         run: |
           gh repo create org/${{ github.event.inputs.repo_name }} \
             --private \
-            --template org/reponame \
+            --template ${{ github.repository }} \
             -y
 
       - name: Add candidate as collaborator
