@@ -1,0 +1,42 @@
+name: Create Candidate Repo
+
+on:
+  workflow_dispatch:
+    inputs:
+      candidate_username:
+        description: 'GitHub username of the candidate'
+        required: true
+        type: string
+      repo_name:
+        description: 'New repository name'
+        required: true
+        type: string
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Install GitHub CLI
+        run: |
+          sudo apt update
+          sudo apt install gh -y
+
+      - name: Authenticate with GitHub CLI
+        env:
+          GITHUB_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
+        run: |
+          echo "${GITHUB_TOKEN}" | gh auth login --with-token
+
+      - name: Create new repo from template
+        run: |
+          gh repo create org/${{ github.event.inputs.repo_name }} \
+            --private \
+            --template org/reponame \
+            --confirm
+
+      - name: Add candidate as collaborator
+        run: |
+          gh repo add-collaborator org/${{ github.event.inputs.repo_name }} \
+            ${{ github.event.inputs.candidate_username }} \
+            --permission push
