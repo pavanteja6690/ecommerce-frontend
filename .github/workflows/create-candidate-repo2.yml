@@ -38,6 +38,8 @@ jobs:
             -y
 
       - name: Add candidate as collaborator
+        env:
+          GH_TOKEN: ${{ secrets.PERSONAL_ACCESS_TOKEN }}
         run: |
            gh api -X PUT -H "Accept: application/vnd.github.v3+json" \
             /repos/pavanteja6690/${{ github.event.inputs.repo_name }}/collaborators/${{ github.event.inputs.candidate_username }} \
