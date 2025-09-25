@@ -40,5 +40,4 @@ jobs:
       - name: Add candidate as collaborator
         run: |
           gh repo add-collaborator org/${{ github.event.inputs.repo_name }} \
-            ${{ github.event.inputs.candidate_username }} \
-            --permission push
+            ${{ github.event.inputs.candidate_username }} 
